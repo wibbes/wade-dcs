@@ -8,8 +8,8 @@ const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
 
 const server = express()
-	app.use(express.static(__dirname + '/Automation'));  
-	app.get('/', function(req, res,next) {  
+	server.use(express.static(__dirname + '/Automation'));  
+	server.get('/', function(req, res,next) {  
 		res.sendFile(__dirname + '/index.html');
 	});
 
