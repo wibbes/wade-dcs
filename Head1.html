@@ -1,0 +1,15 @@
+<html>
+  <body>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+	  
+	  var url_string = window.location.href
+	  var url = new URL(url_string);
+	  var Machine = url.searchParams.get("Machine");
+	  var Data = url.searchParams.get("Data");
+      socket.emit(Machine,Data);
+    </script>
+  </body>
+</html>
