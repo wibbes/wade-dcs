@@ -12,6 +12,7 @@
         el.innerHTML = 'Server time: ' + timeString;
       }
 	   socket.on('Head1', function(data) {
+	   console.log(data);
         log.innerHTML = log.innerHTML + data + '\n';
       }
 	  );
