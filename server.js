@@ -18,7 +18,7 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => console.log('Client disconnected'));
   socket.on('Head1', function (data) {
     console.log("Head 1 -" + data);
-    socket.emit('Head1', { my: 'data' });
+    socket.emit('Head1', data);
   });
 });
 
