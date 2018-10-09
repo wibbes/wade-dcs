@@ -10,7 +10,7 @@
 
 	   var Machine = getUrlParam('Machine');
 	   var Payload = getUrlParam('Payload');
-	   Payload = Payload.replace(/+/g, '"');
+	   Payload = Payload.split('+').join('"');
 		if (Machine > "") {
     // do something with the id
 	console.log("Payload Exists");
