@@ -14,7 +14,7 @@
     // do something with the id
 	console.log("Payload Exists");
 	socket.emit("Machine",Payload);
-	socket.brodcast.emit("Machine",Payload);
+	socket.broadcast.emit("Machine",Payload);
 		} else {
     // there is no id value
 	console.log("Payload Not Found");
