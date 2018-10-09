@@ -19,6 +19,7 @@ io.on('connection', (socket) => {
   socket.on('Machine', function(data){ 
 	console.log('Client disconnected')
 	socket.emit('Machine',data);
+	socket.broadcast.emit('Machine',data);
 });
 });
 
