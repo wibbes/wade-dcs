@@ -16,10 +16,10 @@ const io = socketIO(server);
 io.on('connection', (socket) => {
   console.log('Client connected');
   socket.on('disconnect', () => console.log('Client disconnected'));
-  socket.on('Head1', function(data){ 
+  socket.on('Machine', function(data){ 
 	console.log('Client disconnected')
-	socket.emit('Head1',data);
-  });
+	socket.emit('Machine',data);
+});
 });
 
 setInterval(() => io.emit('time', new Date().toTimeString()), 1000);

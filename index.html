@@ -8,14 +8,31 @@
       var el = document.getElementById('server-time');
 	   var log = document.getElementById('log');
 
+	   var Machine = getUrlParam('Machine');
+	   var Payload = getUrlParam('Payload');
+		if (Machine > "") {
+    // do something with the id
+	Console.log("Payload Exists");
+	socket.emit(Machine,Payload);
+		} else {
+    // there is no id value
+	Console.log("Payload Not Found");
+		}
+	   
+	   
       socket.on('time', function(timeString) {
         el.innerHTML = 'Server time: ' + timeString;
       });
-	   socket.on('Head1', function(data) {
+	   socket.on('Machine', function(data) {
 	   console.log(data);
         log.innerHTML = log.innerHTML + data + '<br /> ';
       }
 	  );
+	  
+	  function getUrlParam(name) {
+		var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+		return (results && results[1]) || undefined;
+		}
     </script>
   </body>
 </html>
