@@ -13,6 +13,8 @@
 		if (Machine > "") {
     // do something with the id
 	console.log("Payload Exists");
+	console.log(Payload);
+	console.log(JSON.parse(Payload));
 	socket.emit("Machine",JSON.parse(Payload));
 	
 		} else {
