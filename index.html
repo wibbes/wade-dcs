@@ -8,8 +8,8 @@
       var el = document.getElementById('server-time');
 	   var log = document.getElementById('log');
 
-	  function test(Payload) {
-	   Payload = Payload.split('+').join('"');
+	  function test(payload) {
+	   payload = payload.split('+').join('"');
 		
     // do something with the id
 	log.innerHTML = payload
