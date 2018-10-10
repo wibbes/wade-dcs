@@ -8,20 +8,16 @@
       var el = document.getElementById('server-time');
 	   var log = document.getElementById('log');
 
-	   var Machine = getUrlParam('Machine');
-	   var Payload = getUrlParam('Payload');
+	  function getUrlParam(Payload) {
 	   Payload = Payload.split('+').join('"');
-		if (Machine > "") {
+		
     // do something with the id
 	console.log("Payload Exists");
 	console.log(Payload);
 	console.log(JSON.parse(Payload));
 	socket.emit("Machine",JSON.parse(Payload));
 	
-		} else {
-    // there is no id value
-	console.log("Payload Not Found");
-		}
+	}
 	   
 	   
       socket.on('time', function(timeString) {
