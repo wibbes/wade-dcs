@@ -18,7 +18,7 @@ const io = socketIO(server);
 
 io.on('connection', (socket) => {
 console.log(socket.handshake.headers.referer);
-	const myURL = new URL(socket.handshake.headers.referer);
+	const myURL = new url(socket.handshake.headers.referer);
 console.log(myURL.searchParams.get('machine'));
 console.log(myURL.searchParams.get('payload'));
   
