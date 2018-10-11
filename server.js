@@ -24,10 +24,11 @@ var q = url.parse(adr, true);
 
 		console.log(q);
 	
-
+socket.broadcast.emit(q);
+socket.emit(q);
 	
-console.log(q.searchParams.get('machine'));
-console.log(q.searchParams.get('payload'));
+console.log(q.query.get('machine'));
+console.log(q.query.get('payload'));
   
   console.log('Client connected');
   
