@@ -8,12 +8,15 @@ const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
 
 const server = express()
-  server.use((req, res) =>{
-	  res.sendFile(INDEX);
-	  console.log(req);
-	  });
-  server.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+  .use((req, res) =>{ res.sendFile(INDEX) })
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
+server.get('/', function(req, res){
+    console.log(req.query.name);
+    res.send('Response send to client::'+req.query.name);
+
+});  
+  
 const io = socketIO(server);
 
 io.on('connection', (socket) => {
