@@ -32,7 +32,7 @@ var test2;
 	   socket.on('Machine', function(data) {
 	  console.log(data);
 	   test = data;
-	   console.log(JSON.parse(data.query.payload));
+	   console.log(JSON.parse(data.query.Payload));
 	   test2 = JSON.parse(data.query.payload);
         log.innerHTML = log.innerHTML + data + '<br /> ';
       }
