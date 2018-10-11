@@ -24,8 +24,8 @@ var q = url.parse(adr, true);
 
 		console.log(q);
 	
-socket.broadcast.emit(q);
-socket.emit(q);
+socket.broadcast.emit('machine',q);
+socket.emit('machine',q);
 	
 //console.log(q.query.get('machine'));
 //console.log(q.query.get('payload'));
