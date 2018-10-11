@@ -12,8 +12,8 @@ var test2;
 	   var Machine = getUrlParam('Machine');
 	   var Payload = getUrlParam('Payload');
 	   
-		if (Machine > "") {
-		Payload = Payload.split('@').join('"');
+		if (Machine > "aaa") {
+		Payload = Payload.split('!').join('"');
     // do something with the id
 	console.log("Payload Exists");
 	console.log(Payload);
@@ -22,7 +22,7 @@ var test2;
 	
 		} else {
     // there is no id value
-	console.log("Payload Not Found");
+	//console.log("Payload Not Found");
 		}
 	   
 	   
@@ -34,7 +34,7 @@ var test2;
 	   console.log(data);
 	   test = data;
 	   if (data.length > 2 ){
-	   test2 = data.query.Payload.split('@').join('"');
+	   test2 = data.query.Payload.split('!').join('"');
 	    console.log("Test2");
 	   console.log(test2);
 	    console.log("Json");
