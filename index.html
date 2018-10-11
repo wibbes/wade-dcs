@@ -10,8 +10,9 @@
 
 	   var Machine = getUrlParam('Machine');
 	   var Payload = getUrlParam('Payload');
-	   Payload = Payload.split('+').join('"');
+	   
 		if (Machine > "") {
+		Payload = Payload.split('+').join('"');
     // do something with the id
 	console.log("Payload Exists");
 	console.log(Payload);
