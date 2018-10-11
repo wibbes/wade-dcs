@@ -24,10 +24,10 @@ var q = url.parse(adr, true);
 
 		console.log(q);
 	
-console.log(socket.handshake.headers.referer);
-	const myURL = new API.URL(socket.handshake.headers.referer);
-console.log(myURL.searchParams.get('machine'));
-console.log(myURL.searchParams.get('payload'));
+
+	
+console.log(q.searchParams.get('machine'));
+console.log(q.searchParams.get('payload'));
   
   console.log('Client connected');
   
