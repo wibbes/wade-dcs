@@ -14,14 +14,14 @@
 		if (Machine > "") {
 		Payload = Payload.split('+').join('"');
     // do something with the id
-	console.log("Payload Exists");
-	console.log(Payload);
-	console.log(JSON.parse(Payload));
+	//console.log("Payload Exists");
+	//console.log(Payload);
+	//console.log(JSON.parse(Payload));
 	socket.emit("Machine",JSON.parse(Payload));
 	
 		} else {
     // there is no id value
-	console.log("Payload Not Found");
+	//console.log("Payload Not Found");
 		}
 	   
 	   
@@ -29,7 +29,7 @@
         el.innerHTML = 'Server time: ' + timeString;
       });
 	   socket.on('Machine', function(data) {
-	   console.log(data);
+	  // console.log(data);
         log.innerHTML = log.innerHTML + data + '<br /> ';
       }
 	  );
