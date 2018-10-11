@@ -30,13 +30,16 @@ var test2;
         el.innerHTML = 'Server time: ' + timeString;
       });
 	   socket.on('Machine', function(data) {
-	  console.log(data);
+	   console.log("Data");
+	   console.log(data);
 	   test = data;
 	   test2 = data.query.Payload.split('+').join('"');
+	    console.log("Test2");
 	   console.log(test2);
+	    console.log("Json");
 	   console.log(JSON.parse(test2));
 	   test2 = JSON.parse(test2);
-        log.innerHTML = log.innerHTML + data + '<br /> ';
+       log.innerHTML = log.innerHTML + data + '<br /> ';
       }
 	  );
 	  
