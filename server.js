@@ -27,8 +27,8 @@ var q = url.parse(adr, true);
 socket.broadcast.emit(q);
 socket.emit(q);
 	
-console.log(q.query.get('machine'));
-console.log(q.query.get('payload'));
+//console.log(q.query.get('machine'));
+//console.log(q.query.get('payload'));
   
   console.log('Client connected');
   
