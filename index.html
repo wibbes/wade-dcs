@@ -33,6 +33,7 @@ var test2;
 	   console.log("Data");
 	   console.log(data);
 	   test = data;
+	   if (data.query.Payload > "" ){
 	   test2 = data.query.Payload.split('@').join('"');
 	    console.log("Test2");
 	   console.log(test2);
@@ -40,6 +41,7 @@ var test2;
 	   console.log(JSON.parse(test2));
 	   test2 = JSON.parse(test2);
        log.innerHTML = log.innerHTML + data + '<br /> ';
+	   }
       }
 	  );
 	  
