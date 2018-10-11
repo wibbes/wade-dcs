@@ -7,7 +7,7 @@
       var socket = io();
       var el = document.getElementById('server-time');
 	   var log = document.getElementById('log');
-
+var test;
 	   var Machine = getUrlParam('Machine');
 	   var Payload = getUrlParam('Payload');
 	   
@@ -30,7 +30,7 @@
       });
 	   socket.on('Machine', function(data) {
 	  console.log(data);
-	  var test = data;
+	   test = data;
         log.innerHTML = log.innerHTML + data + '<br /> ';
       }
 	  );
