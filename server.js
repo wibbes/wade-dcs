@@ -17,6 +17,13 @@ const server = express()
 const io = socketIO(server);
 
 io.on('connection', (socket) => {
+	
+	var url = require('url');
+var adr = 'http://localhost:8080/default.htm?year=2017&month=february';
+var q = url.parse(adr, true);
+
+		console.log(q);
+	
 console.log(socket.handshake.headers.referer);
 	const myURL = new API.URL(socket.handshake.headers.referer);
 console.log(myURL.searchParams.get('machine'));
