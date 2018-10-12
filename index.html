@@ -33,7 +33,7 @@ var test2;
 	   console.log("Data");
 	   console.log(data.query.Payload);
 	   console.log(data.query.Payload.split('!').join('"'));
-	   test = data.split('!').join('"');
+	   test = data.query.Payload.split('!').join('"');
 	   if (test > "" ){
 	   
 	   console.log(JSON.parse(test));
