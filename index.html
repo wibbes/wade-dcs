@@ -13,12 +13,12 @@ var test2;
 	   var Payload = getUrlParam('Payload');
 	   
 		if (Machine > "") {
-		Payload = Payload.split('!').join('"');
+		//Payload = Payload.split('!').join('"');
     // do something with the id
-	console.log("Payload Exists");
-	console.log(Payload);
-	console.log(JSON.parse(Payload));
-	socket.emit("Machine",JSON.parse(Payload));
+	//console.log("Payload Exists");
+	//console.log(Payload);
+	//console.log(JSON.parse(Payload));
+	socket.emit("Machine",Payload);
 	
 		} else {
     // there is no id value
