@@ -30,11 +30,12 @@ var test2;
         el.innerHTML = 'Server time: ' + timeString;
       });
 	   socket.on('Machine', function(data) {
+	    if (data.query.Payload > "" ){
 	   console.log("Data");
 	   console.log(data.query.Payload);
 	   console.log(data.query.Payload.split('!').join('"'));
 	   test = data.query.Payload.split('!').join('"');
-	   if (test > "" ){
+	  
 	   
 	   console.log(JSON.parse(test));
 	   test2 = JSON.parse(test);
