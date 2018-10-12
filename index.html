@@ -31,6 +31,7 @@ var test2;
       });
 	   socket.on('Machine', function(data) {
 	   console.log("Data");
+	   console.log(data);
 	   console.log(data.split('!').join('"'));
 	   test = data.split('!').join('"');
 	   if (test > "" ){
