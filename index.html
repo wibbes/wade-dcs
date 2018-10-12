@@ -31,15 +31,12 @@ var test2;
       });
 	   socket.on('Machine', function(data) {
 	   console.log("Data");
-	   console.log(data);
-	   test = data;
-	   if (data.length > 2 ){
-	   test2 = data.query.Payload.split('!').join('"');
-	    console.log("Test2");
-	   console.log(test2);
-	    console.log("Json");
-	   console.log(JSON.parse(test2));
-	   test2 = JSON.parse(test2);
+	   console.log(data.split('!').join('"'));
+	   test = data.split('!').join('"');
+	   if (test > "" ){
+	   
+	   console.log(JSON.parse(test));
+	   test2 = JSON.parse(test);
        log.innerHTML = log.innerHTML + data + '<br /> ';
 	   }
       }
