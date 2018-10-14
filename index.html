@@ -7,44 +7,22 @@
       var socket = io();
       var el = document.getElementById('server-time');
 	   var log = document.getElementById('log');
-var test;
-var test2;
-	   var Machine = getUrlParam('Machine');
-	   var Payload = getUrlParam('Payload');
-	   
-		if (Machine > "") {
-		//Payload = Payload.split('!').join('"');
-    // do something with the id
-	//console.log("Payload Exists");
-	//console.log(Payload);
-	//console.log(JSON.parse(Payload));
-	socket.emit("Machine",Payload);
-	
-		} else {
-    // there is no id value
-	//console.log("Payload Not Found");
-		}
-	   
+  
 	   
       socket.on('time', function(timeString) {
         el.innerHTML = 'Server time: ' + timeString;
       });
-	   socket.on('Machine', function(data) {
+	   socket.on('PLC-Data', function(data) {
 	    if (data > "" ){
-	   console.log("Data");
+	   //console.log("Data");
 	   console.log(data);
-	   
-	   
 	 
        log.innerHTML = log.innerHTML + data + '<br /> ';
 	   }
       }
 	  );
 	  
-	  function getUrlParam(name) {
-		var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
-		return (results && results[1]) || undefined;
-		}
+	
     </script>
   </body>
 </html>

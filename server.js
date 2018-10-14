@@ -18,23 +18,14 @@ const io = socketIO(server);
 
 io.on('connection', (socket) => {
 	
-
-
-	
-	
-//socket.broadcast.emit('Machine',q);
-//socket.emit('Machine',q);
-	
-//console.log(q.query.get('machine'));
-//console.log(q.query.get('payload'));
   
-  console.log('Client connected');
+ // console.log('Client connected');
   
-  socket.on('disconnect', () => console.log('Client disconnected'));
-  socket.on('Machine', function(data){ 
-	console.log('Client disconnected')
-	socket.emit('Machine',data);
-	socket.broadcast.emit('Machine',data);
+  //socket.on('disconnect', () => console.log('Client disconnected'));
+  socket.on('PLC-Data', function(data){ 
+
+	socket.emit('PLC-Data',data);
+	
 });
 });
 
