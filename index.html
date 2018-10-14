@@ -15,6 +15,8 @@
 	   socket.on('PLC-Data', function(data) {
 	   
 	   console.log(data);
+	   obj = JSON.parse(data);
+	   console.log(obj);
 	 
        log.innerHTML = log.innerHTML + data + '<br /> ';
 	   
