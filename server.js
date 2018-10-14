@@ -22,8 +22,8 @@ io.on('connection', (socket) => {
 
 	
 	
-socket.broadcast.emit('Machine',q);
-socket.emit('Machine',q);
+//socket.broadcast.emit('Machine',q);
+//socket.emit('Machine',q);
 	
 //console.log(q.query.get('machine'));
 //console.log(q.query.get('payload'));
