@@ -18,11 +18,9 @@ const io = socketIO(server);
 
 io.on('connection', (socket) => {
 	
-	var url = require('url');
-var adr = socket.handshake.headers.referer;
-var q = url.parse(adr, true);
 
-		console.log(q);
+
+	
 	
 socket.broadcast.emit('Machine',q);
 socket.emit('Machine',q);
