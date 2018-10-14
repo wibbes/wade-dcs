@@ -13,12 +13,11 @@
         el.innerHTML = 'Server time: ' + timeString;
       });
 	   socket.on('PLC-Data', function(data) {
-	    if (data > "" ){
-	   //console.log("Data");
+	   
 	   console.log(data);
 	 
        log.innerHTML = log.innerHTML + data + '<br /> ';
-	   }
+	   
       }
 	  );
 	  
