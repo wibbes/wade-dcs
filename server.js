@@ -27,6 +27,16 @@ io.on('connection', (socket) => {
 	socket.broadcast.emit('PLC-Data',data);
 	
 });
+socket.on('PLC-Start', function(data){ 
+	console.log(data);
+	socket.broadcast.emit('PLC-Start',data);
+	
+});
+socket.on('PLC-Stop', function(data){ 
+	console.log(data);
+	socket.broadcast.emit('PLC-Stop',data);
+	
+});
 });
 
 setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
