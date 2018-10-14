@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
   
   //socket.on('disconnect', () => console.log('Client disconnected'));
   socket.on('PLC-Data', function(data){ 
-
+	console.log(data);
 	socket.emit('PLC-Data',data);
 	
 });
