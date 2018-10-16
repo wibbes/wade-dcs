@@ -25,10 +25,12 @@
 		
 		socket.on('PLC-Data', function(data) {
 			if (running == true){
+			if (once == false){
 				addData(data);
 			}
 			if (once == true) {
 			console.log("Test 1");
+			console.log(data);
 			console.log(data.MachineID);
 			if (onceUnused.includes(data.MachineID)){
 			console.log("Test 2");
@@ -43,6 +45,7 @@
 			
 			}
 			
+			}
 			}
 		});
 		
