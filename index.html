@@ -33,15 +33,18 @@
 			
 				var index = onceUnused.indexOf(5);
 				if (index > -1) {
+				
 					onceUnused.splice(index, 1);
+			
 				}
 			
-			addData(data);
+				addData(data);
 			
 			}
 			
 			}
 		});
+		
 		function addData(data){
 		
 		//console.log(data);
@@ -69,8 +72,7 @@
 		}
 		
 		var onceUnused;
-		function once()
-		{
+		function once(){
 		clearc();
 		running = false;
 		onceUnused = [12,11,10,9,8,7,6,5,4,3,2,1];
