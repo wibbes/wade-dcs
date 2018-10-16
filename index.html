@@ -4,6 +4,7 @@
   <button onclick="start()">Start</button>
   <button onclick="stop()">Stop</button>
   <button onclick="clearc()">Clear</button>
+  <button onclick="once()">Once</button>
   </p>
   
     <p id='server-time'></p>
@@ -11,6 +12,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
 		var running = true;
+		var once = false;
 	
 		var socket = io();
 		var el = document.getElementById('server-time');
@@ -23,19 +25,39 @@
 		
 		socket.on('PLC-Data', function(data) {
 			if (running == true){
-				//console.log(data);
+				addData(data);
+			}
+			if (once == true) {
+			
+			if (onceUnused.includes(data.MachineID)){
+			
+				var index = onceUnused.indexOf(5);
+				if (index > -1) {
+					onceUnused.splice(index, 1);
+				}
+			
+			addData(data);
+			
+			}
+			
+			}
+		});
+		function addData(data){
+		
+		//console.log(data);
 			
 				obj = JSON.parse(data);
 			
 				console.log(obj);
 	 
 				log.innerHTML = log.innerHTML + data + '<br /> ';
-			}
-		});
+		}
 	  
 		function start() {
 			running = true;
 		}
+		
+		
 		
 		function stop() {
 			running = false;	
@@ -45,6 +67,15 @@
 			console.clear();
 			console.log("clear");
 		}
+		
+		var onceUnused;
+		function once()
+		{
+		clearc();
+		running = false;
+		onceUnused = [12,11,10,9,8,7,6,5,4,3,2,1];
+		}
+		
 	  
 	
     </script>
