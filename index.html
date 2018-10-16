@@ -28,7 +28,7 @@
 		obj = JSON.parse(data)
 			if (running == true){
 			if (once == false){
-				addData(obj);
+				addData(data);
 			}
 			}
 			if (once == true) {
@@ -44,7 +44,7 @@
 			
 				}
 			
-				addData(obj);
+				addData(data);
 			
 			}
 			
@@ -56,7 +56,7 @@
 		
 		//console.log(data);
 			
-				
+				obj = JSON.parse(data)
 			
 				console.log(obj);
 	 
