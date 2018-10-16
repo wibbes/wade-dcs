@@ -1,45 +1,48 @@
 <html>
   <body>
   <p id='Button-Control'>
-  <button onclick="Start()">Start</button>
-  <button onclick="Stop()">Stop</button>
-  <button onclick="Clear()">Clear</button>
+  <button onclick="start()">Start</button>
+  <button onclick="stop()">Stop</button>
+  <button onclick="clear()">Clear</button>
   </p>
   
     <p id='server-time'></p>
 	<p id='log'></p>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-	var running = true;
+		var running = true;
 	
-      var socket = io();
-      var el = document.getElementById('server-time');
-	   var log = document.getElementById('log');
+		var socket = io();
+		var el = document.getElementById('server-time');
+		var log = document.getElementById('log');
   
 	   
-      socket.on('time', function(timeString) {
-        el.innerHTML = 'Server time: ' + timeString;
-      });
-	   socket.on('PLC-Data', function(data) {
-	   if (running == true){
-	   //console.log(data);
-	   obj = JSON.parse(data);
-	   console.log(obj);
+		socket.on('time', function(timeString) {
+			el.innerHTML = 'Server time: ' + timeString;
+		});
+		
+		socket.on('PLC-Data', function(data) {
+			if (running == true){
+				//console.log(data);
+			
+				obj = JSON.parse(data);
+			
+				console.log(obj);
 	 
-       log.innerHTML = log.innerHTML + data + '<br /> ';
-	   }
-      }
-	  );
+				log.innerHTML = log.innerHTML + data + '<br /> ';
+			}
+		});
 	  
-	  function start() {
-    running = true;
-}
-function stop() {
-    running = false;
-}
-function clear() {
-    console.clear();
-}
+		function start() {
+			running = true;
+		}
+		
+		function stop() {
+			running = false;	
+		}
+		function clear() {
+			console.clear();
+		}
 	  
 	
     </script>
