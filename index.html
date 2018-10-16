@@ -4,7 +4,7 @@
   <button onclick="start()">Start</button>
   <button onclick="stop()">Stop</button>
   <button onclick="clearc()">Clear</button>
-  <button onclick="once()">Once</button>
+  <button onclick="onceData()">Once</button>
   </p>
   
     <p id='server-time'></p>
@@ -68,11 +68,11 @@
 		function clearc() {
 			
 			console.clear();
-			console.log("clear");
+			console.log("Console was cleared");
 		}
 		
 		var onceUnused;
-		function once(){
+		function onceData(){
 		clearc();
 		running = false;
 		onceUnused = [12,11,10,9,8,7,6,5,4,3,2,1];
