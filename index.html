@@ -31,7 +31,7 @@
 			
 			if (onceUnused.includes(data.MachineID)){
 			
-				var index = onceUnused.indexOf(5);
+				var index = onceUnused.indexOf(data.MachineID);
 				if (index > -1) {
 				
 					onceUnused.splice(index, 1);
@@ -58,12 +58,15 @@
 	  
 		function start() {
 			running = true;
+			once = false;
+			clearc();
 		}
 		
 		
 		
 		function stop() {
 			running = false;	
+			once= false;
 		}
 		function clearc() {
 			
@@ -75,6 +78,7 @@
 		function onceData(){
 		clearc();
 		running = false;
+		once = true;
 		onceUnused = [12,11,10,9,8,7,6,5,4,3,2,1];
 		}
 		
