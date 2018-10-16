@@ -25,7 +25,7 @@ io.on('connection', (socket) => {
   socket.on('PLC-Data', function(data){ 
 	console.log(data);
 	socket.broadcast.emit('PLC-Data',data);
-	
+	socket.emit('PLC-Data',data);
 });
 socket.on('PLC-Start', function(data){ 
 	console.log(data);
