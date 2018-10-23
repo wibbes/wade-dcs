@@ -73,7 +73,6 @@
 				obj = JSON.parse(data)
 				
 				//console.log(obj.MachineID);
-				if (obj.MachineID == head.value){
 				
 					heada.innerHTML = 'Vertial Axis:' + obj.Head5.Positions.VertialAxis.ActualPosition + '<br />';
 					heada.innerHTML = heada.innerHTML + 'Hozizontal Axis:' + obj.Head5.Positions.HozizontalAxis.ActualPosition + '<br />';
@@ -82,7 +81,7 @@
 					
 					count1 = count1 + 1;
 					
-				}
+				
 			
 				
 	 if (loging == true){
