@@ -73,7 +73,16 @@
 				obj = JSON.parse(data)
 				
 				//console.log(obj.MachineID);
-				console.log(obj.length);
+				if (obj.MachineID == head.value){
+				
+					heada.innerHTML = 'Vertial Axis:' + obj.Head5.Positions.VertialAxis.ActualPosition + '<br />';
+					heada.innerHTML = heada.innerHTML + 'Hozizontal Axis:' + obj.Head5.Positions.HozizontalAxis.ActualPosition + '<br />';
+					heada.innerHTML = heada.innerHTML + 'Nomial Pressure:' + obj.Head5.Pressures.NomialPressure + '<br />';
+					heada.innerHTML = heada.innerHTML + 'Actual Pressure:' + obj.Head5.Pressures.ActualPressure + '<br />';
+					
+					count1 = count1 + 1;
+					
+				}
 			
 				
 	 if (loging == true){
