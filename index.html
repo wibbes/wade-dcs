@@ -5,9 +5,11 @@
   <button onclick="stop()">Stop</button>
   <button onclick="clearc()">Clear</button>
   <button onclick="onceData()">Once</button>
+  <button onclick="TrackHead()">Track Head</button>
   </p>
   
     <p id='server-time'></p>
+	<p id='Head6HozAct'></p>
 	<p id='log'></p>
     <script src="/socket.io/socket.io.js"></script>
     <script>
@@ -16,6 +18,7 @@
 	
 		var socket = io();
 		var el = document.getElementById('server-time');
+		var head6HozAct = document.getElementById('Head6HozAct');
 		var log = document.getElementById('log');
   
 	   
@@ -57,6 +60,12 @@
 		//console.log(data);
 			
 				obj = JSON.parse(data)
+				
+				if (data.MachineID == "6"){
+				
+				head6HozAct.innerHTML = data.Positions.VertialAxis.ActualPosition;
+				
+				}
 			
 				console.log(obj);
 	 
