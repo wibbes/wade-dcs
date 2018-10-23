@@ -6,10 +6,11 @@
   <button onclick="clearc()">Clear</button>
   <button onclick="onceData()">Once</button>
   <button onclick="Logging()">Logging</button>
+  <input type="text" id="Head">
   </p>
   
     <p id='server-time'></p>
-	<p id='Head6HozAct'></p>
+	<p id='Heada'></p>
 	<p id='count'></p>
 	<p id='log'></p>
     <script src="/socket.io/socket.io.js"></script>
@@ -20,10 +21,10 @@
 	 var count1  = 0;
 		var socket = io();
 		var el = document.getElementById('server-time');
-		var head6HozAct = document.getElementById('Head6HozAct');
+		var heada = document.getElementById('Heada');
 		var log = document.getElementById('log');
 		var count = document.getElementById('count');
-  
+  var head = document.getElementById('head');
 	   
 		socket.on('time', function(timeString) {
 			el.innerHTML = 'Server time: ' + timeString;
@@ -64,16 +65,20 @@
 			
 				obj = JSON.parse(data)
 				//console.log(obj.MachineID);
-				if (obj.MachineID == "6"){
+				if (obj.MachineID == head.value){
 				
-					head6HozAct.innerHTML = obj.Positions.VertialAxis.ActualPosition;
-					count1 = count1 +1;
+					heada.innerHTML = "Vertial Axis:"+obj.Positions.VertialAxis.ActualPosition + "<br / >;
+					heada.innerHTML = heada.innerHTML +"Hozizontal Axis:"+obj.Positions.HozizontalAxis.ActualPosition + "<br / >;
+					heada.innerHTML = heada.innerHTML +"Nomial Pressure:"+obj.Pressures.NomialPressure + "<br / >;
+					heada.innerHTML = heada.innerHTML +"Actual Pressure:"+obj.Pressures.ActualPressure + "<br / >;
+					count1 = count1 + 1;
 					count.innerHTML = count1;
 				}
 			
-				//console.log(obj);
+				
 	 if (loging == true){
 				log.innerHTML = log.innerHTML + data + '<br /> ';
+				console.log(obj);
 				}
 		}
 	  
