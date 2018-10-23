@@ -60,10 +60,10 @@
 		//console.log(data);
 			
 				obj = JSON.parse(data)
-				console.log(data.MachineID);
-				if (data.MachineID == "6"){
+				//console.log(obj.MachineID);
+				if (obj.MachineID == "6"){
 				
-				head6HozAct.innerHTML = data.Positions.VertialAxis.ActualPosition;
+				head6HozAct.innerHTML = obj.Positions.VertialAxis.ActualPosition;
 				
 				}
 			
