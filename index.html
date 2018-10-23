@@ -5,7 +5,7 @@
   <button onclick="stop()">Stop</button>
   <button onclick="clearc()">Clear</button>
   <button onclick="onceData()">Once</button>
-  <button onclick="TrackHead()">Track Head</button>
+  <button onclick="Logging()">Logging</button>
   </p>
   
     <p id='server-time'></p>
@@ -16,6 +16,7 @@
     <script>
 		var running = true;
 		var once = false;
+		var loging = false;
 	 var count1  = 0;
 		var socket = io();
 		var el = document.getElementById('server-time');
@@ -71,8 +72,9 @@
 				}
 			
 				//console.log(obj);
-	 
+	 if (loging == true){
 				log.innerHTML = log.innerHTML + data + '<br /> ';
+				}
 		}
 	  
 		function start() {
@@ -81,7 +83,19 @@
 			clearc();
 		}
 		
+		function Logging(){
 		
+		clearc();
+		
+		log.innerHTML = "";
+		if (loging ==true)
+		{
+		loging = false;
+		}else{
+		loging = true;
+		}
+		
+		}
 		
 		function stop() {
 			running = false;	
