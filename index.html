@@ -10,16 +10,18 @@
   
     <p id='server-time'></p>
 	<p id='Head6HozAct'></p>
+	<p id='count'></p>
 	<p id='log'></p>
     <script src="/socket.io/socket.io.js"></script>
     <script>
 		var running = true;
 		var once = false;
-	
+	 var count1  = 0;
 		var socket = io();
 		var el = document.getElementById('server-time');
 		var head6HozAct = document.getElementById('Head6HozAct');
 		var log = document.getElementById('log');
+		var count = document.getElementById('count');
   
 	   
 		socket.on('time', function(timeString) {
@@ -63,8 +65,9 @@
 				//console.log(obj.MachineID);
 				if (obj.MachineID == "6"){
 				
-				head6HozAct.innerHTML = obj.Positions.VertialAxis.ActualPosition;
-				
+					head6HozAct.innerHTML = obj.Positions.VertialAxis.ActualPosition;
+					count1 = count1 +1;
+					count.innerHTML = count1;
 				}
 			
 				//console.log(obj);
