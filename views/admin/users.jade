@@ -1,0 +1,23 @@
+block variables
+  -var active = "admin"
+  -var title = "Admin - Users"
+include ../parts/whole
+
+ p
+  .row
+    .col-sm-5.col-lg-3
+      .card.text-white.bg-info
+        .card-body.pb-0
+          .btn-group.float-right
+            button.btn.btn-transparent.dropdown-toggle.p-0(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              i.icon-settings
+            .dropdown-menu.dropdown-menu-right
+              a.dropdown-item(href='/admin/users') Edit users
+          p Users
+          p#TotalUsers Hello World!
+        p
+
+    #{userMap}
+       
+include ../parts/footer
+script(src="/scripts/admin/users.js")

@@ -1,0 +1,22 @@
+<html>
+    <head>
+    <script type='text/javascript'>
+        function IsValid() {
+            return "true";
+        }
+        function pushData(machine,key,value){
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/update", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                "Machine": machine,
+                "Key":key,
+                "Value":value
+            }));
+        }
+    </script>
+    </head>
+    <body>No need to be here!
+        Wade
+    </body>
+    </html>

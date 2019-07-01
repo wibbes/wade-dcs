@@ -1,0 +1,16 @@
+block variables
+  -var active = "Register"
+  -var title = "Register"
+include ../parts/whole
+
+  h1 &nbsp
+  h1 Please registor below
+  h1 &nbsp
+   form(method='POST')
+    legend Forgot Password
+    .form-group
+      label(for='email') Email
+      input.form-control(type='text', name='email', autofocus)
+    button.btn.btn-primary(type='submit') Reset Password
+       
+include ../parts/footer

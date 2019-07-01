@@ -1,0 +1,43 @@
+
+if (active == "index")
+    li.active
+        a(href='index')
+            i.ft-home
+            span.menu-title(data-i18n='') Dashboard
+else
+    li.nav-item
+        a(href='index')
+            i.ft-home
+            span.menu-title(data-i18n='') Dashboard
+if (active == "pcmview")
+    li.active
+        a(href='pcm')
+            i.ft-pie-chart
+            span.menu-title(data-i18n='') PCM's
+else
+    li.nav-item
+        a(href='pcm')
+            i.ft-pie-chart
+            span.menu-title(data-i18n='') PCM's
+if (active == "input")
+    li.active
+        a(href='input')
+            i.ft-monitor
+            span.menu-title(data-i18n='') Input Form's
+else
+    li.nav-item
+        a(href='input')
+            i.ft-monitor
+            span.menu-title(data-i18n='') Input Form's
+if(user)
+    if (user.level >= 10)
+        if (active == "admin")
+            li.active
+                a(href='admin')
+                    i.ft-pie-chart
+                    span.menu-title(data-i18n='') Admin
+        else
+             li.nav-item
+                a(href='admin')
+                    i.ft-pie-chart
+                    span.menu-title(data-i18n='') Admin

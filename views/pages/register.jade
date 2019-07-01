@@ -1,0 +1,22 @@
+block variables
+  -var active = "Register"
+  -var title = "Register"
+include ../parts/whole
+
+  h1 &nbsp
+  h1 Please registor below
+  h1 &nbsp
+  form(role='form', action="/register",method="post", style='max-width: 300px;')
+    .form-group
+        input.form-control(type='text', name="username", placeholder='Enter Username')
+      .form-group
+        input.form-control(type='text', name="name", placeholder='Enter Name')
+      .form-group
+        input.form-control(type='text', name="email", placeholder='Enter Email')
+    .form-group
+      input.form-control(type='password', name="password", placeholder='Password')
+    button.btn.btn-default(type='submit') Submit
+    a(href='/')
+      button.btn.btn-primary(type="button") Cancel
+       
+include ../parts/footer

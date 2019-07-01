@@ -1,0 +1,14 @@
+.main-menu.menu-fixed.menu-light.menu-accordion.menu-shadow(data-scroll-to-active='true', data-img='theme-assets/images/backgrounds/02.jpg')
+  .navbar-header
+    ul.nav.navbar-nav.flex-row
+      li.nav-item.mr-auto
+        a.navbar-brand(href='index')
+          img.brand-logo(alt='Wade logo', src='theme-assets/images/logo/wadeDefault.svg')
+          h3.brand-text      Wade DCS
+      li.nav-item.d-md-none
+        a.nav-link.close-navbar
+          i.ft-x
+  .main-menu-content
+    ul#main-menu-navigation.navigation.navigation-main(data-menu='menu-navigation')
+        include navbarside
+  .navigation-background
