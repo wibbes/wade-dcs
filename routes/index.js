@@ -9,20 +9,11 @@ var mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
 const mailjet = require ('node-mailjet').connect("eb0edeaa5f2edc36859d4a593b25f5d7", "914768a07800efac40cff59162e751c9")
 
-
 var Keys = {};  
 var Machines = {};//Objects used to store the machine values
 
-///Account.count({}, function(err, count){
- //   console.log( "Number of docs: ", count );
-//});
-
-
-
-
 router.get('/', function (req, res) {
       if (req.user == undefined){
-
         res.render('index', { user : req.user });
     }else{
         res.render('index', { user : req.user ,test:req.user.level});
@@ -120,56 +111,48 @@ request
     });
   });
 
-  router.post('/reset/:token', function(req, res) {
+ router.post('/reset/:token', function(req, res) {
     async.waterfall([
-      function(done) {
-        Account.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
-          if (!user) {
-            req.flash('error', 'Password reset token is invalid or has expired.');
-            return res.redirect('back');
-          }
+        function(done) {
+            Account.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+            if (!user) {
+                req.flash('error', 'Password reset token is invalid or has expired.');
+                return res.redirect('back');
+            }
          
-          Account.findById(user._id, function(err, user) {
-            user.setPassword(req.body.password, function(err) {
-                if (err) { 
-                    console.log(err);
-                }
-                user.save(function(err) {
-                    if (err) {
-                        console.log(err)
-                    }//handle error
-                    else //handle success
-                    {
-                        user.resetPasswordToken = undefined;
-                        user.resetPasswordExpires = undefined;
+            Account.findById(user._id, function(err, user) {
+                user.setPassword(req.body.password, function(err) {
+                    if (err) { 
+                        console.log(err);
                     }
+                    user.save(function(err) {
+                        if (err) {
+                            console.log(err)
+                        }//handle error
+                        else //handle success
+                        {
+                            user.resetPasswordToken = undefined;
+                            user.resetPasswordExpires = undefined;
+                        }
+                    });
+                });
+            });
+
+            user.save(function(err) {
+                req.logIn(user, function(err) {
+                    done(err, user);
                 });
             });
         });
-
-
-          
-          
-  
-          user.save(function(err) {
-            req.logIn(user, function(err) {
-              done(err, user);
-            });
-          });
-        });
-
-        
-      },
-      function(user, done) {
-    
-          req.flash('success', 'Success! Your password has been changed.');
-          done();
-        
-      }
-    ], function(err) {
+    },
+    function(user, done) {
+        req.flash('success', 'Success! Your password has been changed.');
+        done();
+    }], 
+    function(err) {
       res.redirect('/');
     });
-  });
+});
 
 router.get('/index', function (req, res) {
     res.render('index', { user : req.user });
@@ -207,23 +190,20 @@ router.get('/pcm', function (req, res) {
 
 router.get('/input/sacmi', function (req, res) {
 
-
     if (req.user == undefined){
         
         res.redirect("../unAuth");
-       // res.render('pages/unAuth', { user : req.user });
+       
     }else{
-        console.log("ok")
-        console.log(req.user._doc.level)
+
         if (req.user._doc.level >=5)
         {
 
             Account.find({}, function(err, users) {
                 var userMap = {};
-
               
                 users.forEach(function(user) {
-                  userMap[user._id] = user;
+                    userMap[user._id] = user;
                 });
                
                 res.render('pages/input/sacmi', { user : req.user });
@@ -231,7 +211,7 @@ router.get('/input/sacmi', function (req, res) {
         }else{
            
             res.redirect("../unAuth");
-            // res.render('pages/unAuth', { user : req.user });
+           
         }
       
     }
@@ -266,6 +246,7 @@ router.get('/admin', function (req, res) {
       
     }
 });
+
 router.get('/admin-users', function (req, res) {
 
 
