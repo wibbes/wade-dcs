@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
+var nodeOutlook = require('nodejs-nodemailer-outlook')
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
@@ -28,7 +29,7 @@ express()
     replyTo: 'james.lyons@wade.co.uk',
     onError: (e) => console.log(e),
     onSuccess: (i) => console.log(i)
-}
+    });  
   
   });
         
