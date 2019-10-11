@@ -9,7 +9,7 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.send('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-  .post('/email', function (req, res) {
+  .get('/email', function (req, res) {
 
     nodeOutlook.sendEmail({
       host: "smtp-mail.outlook.com", // hostname
